@@ -54,4 +54,9 @@ export class AppComponent {
       console.log('Giá trị thay đổi:', value);
     });
   }
+
+
+  ngDoCheck() {
+    console.log(1)
+  }
 }
