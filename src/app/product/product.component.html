@@ -1,0 +1,11 @@
+<div class="parent">
+    <h2>Component Cha</h2>
+    <p>Tên: {{ parentData.name }}</p>
+    <p>Count: {{ parentData.count }}</p>
+    <button (click)="incrementCount()">Tăng Count</button>
+    <button (click)="changeDataReference()">Thay Đổi Tham Chiếu Dữ Liệu</button>
+  
+    <!-- Sử dụng component con -->
+    <app-view [data]="parentData"></app-view>
+  </div>
+  

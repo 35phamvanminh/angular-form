@@ -1,0 +1,17 @@
+<form [formGroup]="formRadio">
+  <label>
+    <input type="radio" formControlName="selectedOption" [value]="'true'" />
+    Option 1
+  </label>
+  <label>
+    <input type="radio" formControlName="selectedOption" [value]="'false'" />
+    Option 2
+  </label>
+</form>
+
+<app-first-form [form]="formInput"></app-first-form>
+<app-second-form [form]="formInput"></app-second-form>
+
+{{stateChange | json}}
+
+<button (click)="onShowLog()">Show log</button>

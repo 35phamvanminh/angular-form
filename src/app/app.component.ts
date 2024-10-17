@@ -36,29 +36,22 @@ const exceptNumberValidatorAsync = (api: ApiService): ValidatorFn | null => {
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  signInForm!: FormGroup;
+  form!: FormGroup;
+  options = [
+    { label: '1,234.56', value: '1234.56' },
+    { label: '7,890.12', value: '7890.12' },
+    { label: '3,456.78', value: '3456.78' },
+  ];
 
-  get username(): FormControl {
-    return this.signInForm.get('username') as FormControl;
-  }
+  constructor(private fb: FormBuilder) {}
 
-  get password(): FormControl {
-    return this.signInForm.get('password') as FormControl;
-  }
-
-  get rememberMe(): FormControl {
-    return this.signInForm.get('rememberMe') as FormControl;
-  }
-
-  constructor(private fb: FormBuilder, private api: ApiService) {
-    this.signInForm = this.fb.group({
-      username: ['', exceptNumberValidator(1), exceptNumberValidatorAsync(this.api)],
-      password: ['', Validators.required],
-      rememberMe: ['', Validators.required],
+  ngOnInit() {
+    this.form = this.fb.group({
+      decimalValue: [''],
     });
-  }
 
-  onSubmit() {
-    console.log(this.signInForm.value);
+    this.form.get('decimalValue')?.valueChanges.subscribe((value) => {
+      console.log('Giá trị thay đổi:', value);
+    });
   }
 }

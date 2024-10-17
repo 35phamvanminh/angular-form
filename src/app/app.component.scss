@@ -3,3 +3,82 @@
     align-items: center;
     justify-content: center;
 }
+
+  /* styles.scss */
+
+/* Biến màu sắc */
+$ng-select-border-color: #ced4da;
+$ng-select-focus-color: #80bdff;
+$ng-select-bg-color: #f8f9fa;
+$ng-select-hover-bg: #e9ecef;
+
+/* Chỉnh sửa ng-select */
+.ng-select {
+  width: 100%;
+  max-width: 400px;
+  margin: 10px 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  .ng-select-container {
+    border-radius: 8px;
+    border: 1px solid $ng-select-border-color;
+    padding: 5px 10px;
+    background-color: $ng-select-bg-color;
+
+    .ng-placeholder {
+      color: #6c757d;
+      font-style: italic;
+    }
+  }
+
+  &.ng-select-focused {
+    .ng-select-container {
+      border-color: $ng-select-focus-color;
+      box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+    }
+  }
+
+  .ng-dropdown-panel {
+    max-height: 200px;
+    overflow-y: auto;
+
+    .ng-option {
+      padding: 8px 12px;
+      font-size: 14px;
+
+      &:hover,
+      &[aria-selected="true"] {
+        background-color: $ng-select-hover-bg;
+        color: #495057;
+      }
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: rgba(0,0,0,0.2);
+      border-radius: 3px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+  }
+}
+
+
+body .ng-dropdown-panel {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    z-index: 10000; /* Đảm bảo dropdown nằm trên cùng */
+    position: absolute; /* Đảm bảo position đúng */
+    width: 100%; /* Đảm bảo width phù hợp */
+  }
+  
+  /* Thêm hiệu ứng chuyển động (tuỳ chọn) */
+  body .ng-dropdown-panel {
+    transition: all 0.3s ease;
+  }

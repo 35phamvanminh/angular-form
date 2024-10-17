@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
   <form class="sign-in-form" [formGroup]="signInForm" (ngSubmit)="onSubmit()">
     <h2>Sign in</h2>
     <div class="row-control">
@@ -27,4 +27,31 @@
       <button mat-raised-button color="primary" type="submit">Sign in</button>
     </div>
   </form>
-</div>
+</div> -->
+
+
+<!-- <form [formGroup]="form">
+  <ng-select
+    [appLimitInput]
+    formControlName="decimalValue"
+    [items]="options"
+    bindLabel="label"
+    bindValue="value"
+    placeholder="Chọn số thập phân">
+  </ng-select>
+</form> -->
+
+<input type="text" 
+       mask="decimalNumber" 
+       [maxIntegerPartLength]="10" 
+       [maxFractionalPartLength]="12" 
+       [thousandSeparator]="','" 
+       [decimalMarker]="'.'" 
+       [allowMultipleResults]="false"
+       [allowLeadingZero]="false"
+       [isFactionResult]="false"
+       [resultSeparator]="'/'"
+       [shouldRoundDown]="true" />
+
+
+<router-outlet></router-outlet>
